@@ -58,7 +58,7 @@ spring:
                    authorization-grant-type: authorization_code
                    redirect-uri: "http://localhost:8080/login/oauth2/code/{registrationId}"
                    client-id: emaillist
-                   client-secret: JwxAWBGuLIpz7oMETfyhlR0eV1nkGEef
+                   client-secret: fZaXLZpBDnSjZeA5KuVwvACgABCyJ1RQ
                    scope: [openid, profile, email, roles]
 
 server:

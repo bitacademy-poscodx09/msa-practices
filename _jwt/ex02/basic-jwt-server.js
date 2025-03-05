@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 //
 //  request: /auth
 //
-app.post("/auth", (req, res) => {
+app.post("/auth", (req, res) => {    
     const account = {
         id: 1,
         name: 'kickscar',
@@ -27,7 +27,7 @@ app.post("/auth", (req, res) => {
 
     const generateRefreshTokenOptions = {
         algorithm: 'HS256',
-        expiresIn: '180d'   //180 days
+        expiresIn: '1d'   //1 days
     };
 
     const accessToken = jwt.sign(account,  process.env.ACCESS_TOKEN_SECRET, generateAccessTokenOptions);

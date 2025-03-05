@@ -22,8 +22,8 @@ require("dotenv").config();
     } catch (error) {
         console.log(error.name);
 
-        const decoded = jwt.decode(token);
-        console.log(decoded);
+        // const decoded = jwt.decode(token);
+        // console.log(decoded);
 
         const decodedComplete = jwt.decode(token, { complete: true });
         console.log(decodedComplete);

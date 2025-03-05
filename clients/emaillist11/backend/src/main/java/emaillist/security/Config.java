@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -21,6 +23,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.web.client.RestTemplate;
 
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -96,16 +99,17 @@ public class Config {
                 log.info("OAuth2: Authorized JWT: Refresh Token: {}", refreshToken.getTokenValue());
 	            
 	            
-	            //*
+	            /*
 	            response.getWriter().println("AccessToken:" + accessToken.getTokenValue());
 	            response.getWriter().println("Refresh Token:" + refreshToken.getTokenValue());
 	            /*/ 
+                
 	            ResponseCookie cookie = ResponseCookie
 	                    .from("refreshToken", refreshToken.getTokenValue())
 	                	.path("/")
 	                	.maxAge(60*60*24)	// 1day
 	                	.secure(false)		// over HTTPS (x)
-	                	.httpOnly(true)		// Prevent Cross-site scripting (XSS): JavaScript code cannot read or modify
+	                	.httpOnly(true)		// Prevent Cross-site scripting (XSS): JavaScript code can not read or modify
 	                	.sameSite("strict")	// Prevent CSRF attacks
 	                	.build();
 

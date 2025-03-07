@@ -4,7 +4,6 @@
       "@babel/env",
       {
         "targets": {
-          "ie": "11",
           "edge": "80",
           "firefox": "73",
           "chrome": "82",
@@ -16,7 +15,5 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "@babel/plugin-transform-runtime",
-    "@babel/plugin-syntax-throw-expressions"
   ]
 }

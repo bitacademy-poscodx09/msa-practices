@@ -4,7 +4,6 @@ const AuthContext = createContext('');
 
 export const AuthContextProvider = ({ children }) => {
     const tokenState = useState(null);
-
     return (
         <AuthContext.Provider value={{ 
             token: tokenState[0], 
